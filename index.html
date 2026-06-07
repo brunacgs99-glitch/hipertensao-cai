@@ -34,7 +34,7 @@
     }
 
     .header {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      background: linear-gradient(135deg, #8B0000 0%, #8B0000 100%);
       color: white;
       padding: 60px 40px;
       text-align: center;
@@ -67,7 +67,7 @@
     .nav-container {
       background: #2980b9;
       padding: 20px 40px;
-      border-bottom: 3px solid #e74c3c;
+      border-bottom: 3px solid #c0392b;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -107,8 +107,8 @@
     }
 
     .nav-btn.active {
-      background: rgba(231, 76, 60, 0.9);
-      border-color: #e74c3c;
+      background: rgba(192, 57, 43, 0.9);
+      border-color: #c0392b;
       color: white;
     }
 
@@ -136,7 +136,7 @@
 
     .section-title {
       font-size: 2rem;
-      color: #e74c3c;
+      color: #c0392b;
       margin-bottom: 25px;
       font-weight: 700;
       display: flex;
@@ -146,7 +146,7 @@
 
     .content-card {
       background: #f8f9fa;
-      border: 2px solid #e74c3c;
+      border: 2px solid #c0392b;
       padding: 25px;
       border-radius: 12px;
       margin-bottom: 20px;
@@ -154,7 +154,7 @@
     }
 
     .content-card h3 {
-      color: #e74c3c;
+      color: #c0392b;
       font-size: 1.4rem;
       margin-bottom: 15px;
       font-weight: 600;
@@ -215,7 +215,7 @@
 
     .stat-value {
       font-size: 2rem;
-      color: #e74c3c;
+      color: #c0392b;
       font-weight: 700;
       margin-bottom: 8px;
     }
@@ -269,7 +269,7 @@
 
     .footer {
       background: #ecf0f1;
-      border-top: 3px solid #e74c3c;
+      border-top: 3px solid #c0392b;
       padding: 30px 40px;
       text-align: center;
       color: #2c3e50;
@@ -292,14 +292,14 @@
       background: #f0f8ff;
       padding: 15px;
       border-radius: 8px;
-      border-left: 3px solid #e74c3c;
+      border-left: 3px solid #c0392b;
       text-align: left;
       font-size: 0.9rem;
       color: #2c3e50;
     }
 
     .author-item strong {
-      color: #e74c3c;
+      color: #c0392b;
     }
 
     .complication-grid {
@@ -317,7 +317,7 @@
     }
 
     .complication-item h4 {
-      color: #e74c3c;
+      color: #c0392b;
       font-size: 1.2rem;
       margin-bottom: 12px;
       font-weight: 700;
@@ -334,7 +334,7 @@
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #e74c3c;
+      background: #c0392b;
       color: white;
       border: none;
       padding: 12px 16px;
@@ -343,13 +343,13 @@
       font-size: 1.2rem;
       z-index: 99;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+      box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
     }
 
     .back-to-top:hover {
-      background: #c0392b;
+      background: #a93226;
       transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(231, 76, 60, 0.5);
+      box-shadow: 0 6px 16px rgba(192, 57, 43, 0.5);
     }
 
     .back-to-top.show {
@@ -363,7 +363,7 @@
       font-size: 2rem;
       margin: 20px 0;
       letter-spacing: 10px;
-      color: #e74c3c;
+      color: #c0392b;
       opacity: 0.6;
     }
 
@@ -381,7 +381,7 @@
     }
 
     thead {
-      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
       color: white;
     }
 
@@ -439,11 +439,190 @@
     }
 
     .highlight-stat {
-      background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(41, 128, 185, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.1) 0%, rgba(41, 128, 185, 0.1) 100%);
       padding: 15px;
-      border-left: 4px solid #e74c3c;
+      border-left: 4px solid #c0392b;
       border-radius: 6px;
       margin: 15px 0;
+    }
+
+    /* Seção de Diagnóstico Interativa */
+    .interactive-section {
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.08) 0%, rgba(41, 128, 185, 0.08) 100%);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 25px 0;
+      border: 2px solid #c0392b;
+    }
+
+    .interactive-section h3 {
+      color: #c0392b;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .cuff-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .cuff-option {
+      background: white;
+      border: 2px solid #bdc3c7;
+      padding: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .cuff-option:hover {
+      border-color: #2980b9;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .cuff-option.selected {
+      background: #c0392b;
+      color: white;
+      border-color: #c0392b;
+    }
+
+    .cuff-info {
+      background: #e8f4f8;
+      border-left: 4px solid #2980b9;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Semáforo de Pressão */
+    .blood-pressure-semaphore {
+      margin: 25px 0;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .semaphore-input-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-field label {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .input-field input {
+      padding: 12px;
+      border: 2px solid #bdc3c7;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .input-field input:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+    }
+
+    .semaphore-display {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .semaphore-light {
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+
+    .semaphore-light.active {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .green-light {
+      background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    }
+
+    .yellow-light {
+      background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+    }
+
+    .red-light {
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    }
+
+    .result-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    /* Links do Governo */
+    .government-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .gov-link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+    }
+
+    .gov-link-btn:hover {
+      background: linear-gradient(135deg, #1f618d 0%, #154360 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(41, 128, 185, 0.4);
+    }
+
+    .gov-link-btn i {
+      width: 20px;
+      height: 20px;
     }
 
     @media (max-width: 768px) {
@@ -490,20 +669,16 @@
    <div class="header">
     <h1 id="main-title">Hipertensão Arterial Sistêmica</h1>
     <p id="main-subtitle">Conceitos, Epidemiologia, Práticas Integrativas e Sistematização da Assistência de Enfermagem</p>
-    <div class="institution-tag">
-     <span id="institution">Universidade de Brasília</span> • Faculdade de Ciências da Saúde
+    <div class="institution-tag"><span id="institution">Universidade de Brasília</span> • Faculdade de Ciências da Saúde
     </div>
    </div>
    <div class="nav-container">
-    <div class="nav-menu">
-     <button class="nav-btn active" onclick="showSection('intro')"> <i data-lucide="home"></i> Introdução </button> <button class="nav-btn" onclick="showSection('conceito')"> <i data-lucide="brain"></i> Conceitos </button> <button class="nav-btn" onclick="showSection('epidemiologia')"> <i data-lucide="bar-chart-2"></i> Epidemiologia </button> <button class="nav-btn" onclick="showSection('diagnostico')"> <i data-lucide="activity"></i> Diagnóstico </button> <button class="nav-btn" onclick="showSection('risco')"> <i data-lucide="alert-circle"></i> Fatores de Risco </button> <button class="nav-btn" onclick="showSection('complicacoes')"> <i data-lucide="heart"></i> Complicações </button> <button class="nav-btn" onclick="showSection('tratamento')"> <i data-lucide="pill"></i> Tratamento </button> <button class="nav-btn" onclick="showSection('praticas')"> <i data-lucide="leaf"></i> Práticas Integrativas </button> <button class="nav-btn" onclick="showSection('mitos')"> <i data-lucide="help-circle"></i> Mitos &amp; Verdades </button> <button class="nav-btn" onclick="showSection('autores')"> <i data-lucide="users"></i> Autores </button> <button class="nav-btn" onclick="showSection('referencias')"> <i data-lucide="book"></i> Referências </button>
+    <div class="nav-menu"><button class="nav-btn active" onclick="showSection('intro')"> <i data-lucide="home"></i> Introdução </button> <button class="nav-btn" onclick="showSection('conceito')"> <i data-lucide="brain"></i> Conceitos </button> <button class="nav-btn" onclick="showSection('epidemiologia')"> <i data-lucide="bar-chart-2"></i> Epidemiologia </button> <button class="nav-btn" onclick="showSection('diagnostico')"> <i data-lucide="activity"></i> Diagnóstico </button> <button class="nav-btn" onclick="showSection('risco')"> <i data-lucide="alert-circle"></i> Fatores de Risco </button> <button class="nav-btn" onclick="showSection('complicacoes')"> <i data-lucide="heart"></i> Complicações </button> <button class="nav-btn" onclick="showSection('tratamento')"> <i data-lucide="pill"></i> Tratamento </button> <button class="nav-btn" onclick="showSection('praticas')"> <i data-lucide="leaf"></i> Práticas Integrativas </button> <button class="nav-btn" onclick="showSection('mitos')"> <i data-lucide="help-circle"></i> Mitos &amp; Verdades </button> <button class="nav-btn" onclick="showSection('autores')"> <i data-lucide="users"></i> Autores </button> <button class="nav-btn" onclick="showSection('referencias')"> <i data-lucide="book"></i> Referências </button>
     </div>
    </div>
-   <div class="content">
-    <!-- INTRODUÇÃO -->
+   <div class="content"><!-- INTRODUÇÃO -->
     <section id="intro" class="section active">
-     <div class="section-title">
-      <i data-lucide="home"></i> Introdução
+     <div class="section-title"><i data-lucide="home"></i> Introdução
      </div>
      <div class="content-card">
       <h3>O Desafio da Saúde Pública</h3>
@@ -536,13 +711,11 @@
        </div>
       </div>
      </div>
-     <div class="highlight-box">
-      <strong>💡 Dado Crítico:</strong> Apenas um terço dos diagnosticados mantém suas metas pressóricas sob controle adequado, sublinhando a existência de falhas estruturais no rastreamento precoce e na adesão continuada aos tratamentos.
+     <div class="highlight-box"><strong>💡 Dado Crítico:</strong> Apenas um terço dos diagnosticados mantém suas metas pressóricas sob controle adequado, sublinhando a existência de falhas estruturais no rastreamento precoce e na adesão continuada aos tratamentos.
      </div>
     </section><!-- REFERÊNCIAS -->
     <section id="referencias" class="section">
-     <div class="section-title">
-      <i data-lucide="book"></i> Referências Bibliográficas
+     <div class="section-title"><i data-lucide="book"></i> Referências Bibliográficas
      </div>
      <div class="content-card">
       <p style="color: #d0d0d0; margin-bottom: 20px;"><strong>Referências utilizadas neste trabalho acadêmico:</strong></p>
@@ -560,12 +733,12 @@
        <li><strong>WORLD HEALTH ORGANIZATION (WHO).</strong> Hypertension. Geneva: WHO, 2023. Disponível em: https://www.who.int/news-room/fact-sheets/detail/hypertension. Acesso em: 6 jun. 2026.</li>
       </ol>
      </div>
-     <div class="highlight-box" style="margin-top: 30px;"><strong>📚 Nota Importante:</strong> Este material foi elaborado com base em diretrizes científicas atualizadas e publicações acadêmicas de relevância internacionalmente reconhecidas. Recomenda-se que para fins de pesquisa acadêmica aprofundada, os leitores consultem as referências originais listadas acima.
+     <div class="highlight-box" style="margin-top: 30px;">
+      <strong>📚 Nota Importante:</strong> Este material foi elaborado com base em diretrizes científicas atualizadas e publicações acadêmicas de relevância internacionalmente reconhecidas. Recomenda-se que para fins de pesquisa acadêmica aprofundada, os leitores consultem as referências originais listadas acima.
      </div>
     </section><!-- CONCEITOS E FISIOPATOLOGIA -->
     <section id="conceito" class="section">
-     <div class="section-title">
-      <i data-lucide="brain"></i> Conceitos e Fisiopatologia
+     <div class="section-title"><i data-lucide="brain"></i> Conceitos e Fisiopatologia
      </div>
      <div class="content-card">
       <h3>O que é Hipertensão Arterial Sistêmica?</h3>
@@ -625,20 +798,16 @@
        </table>
       </div>
      </div>
-     <div class="highlight-box">
-      <strong>⚠️ Tipos de Hipertensão:</strong>
+     <div class="highlight-box"><strong>⚠️ Tipos de Hipertensão:</strong>
       <ul style="margin-top: 10px;">
        <li><strong>Primária/Essencial:</strong> 90-95% dos casos (genética + hábitos de vida)</li>
        <li><strong>Secundária:</strong> Causas identificáveis (hiperaldosteronismo, estenose renal, síndrome de Cushing, feocromocitoma)</li>
       </ul>
      </div>
-     <div class="decorative-hearts">
-      ❤️ 💙 ❤️ 💙 ❤️
-     </div>
+
     </section><!-- EPIDEMIOLOGIA -->
     <section id="epidemiologia" class="section">
-     <div class="section-title">
-      <i data-lucide="bar-chart-2"></i> Panorama Epidemiológico
+     <div class="section-title"><i data-lucide="bar-chart-2"></i> Panorama Epidemiológico
      </div>
      <div class="content-card">
       <h3>Dados Nacionais (Brasil)</h3>
@@ -708,9 +877,7 @@
        </table>
       </div>
      </div>
-     <div class="decorative-hearts">
-      ❤️ 💙 ❤️ 💙 ❤️
-     </div>
+    
      <div class="content-card">
       <h3>Disparidades Sociais e Étnicas</h3>
       <p>As pesquisas apontam para discrepâncias significativas nos perfis de adoecimento relacionados a variáveis étnicas e socioeconômicas:</p>
@@ -721,13 +888,11 @@
        <li>Desigualdades históricas na distribuição de recursos preventivos</li>
       </ul>
      </div>
-     <div class="highlight-box">
-      <strong>📊 Insight:</strong> A senescência e o enrijecimento do leito vascular com a idade explicam as altas taxas em idosos, mas fatores sociais amplificam essas disparidades em grupos vulneráveis.
+     <div class="highlight-box"><strong>📊 Insight:</strong> A senescência e o enrijecimento do leito vascular com a idade explicam as altas taxas em idosos, mas fatores sociais amplificam essas disparidades em grupos vulneráveis.
      </div>
     </section><!-- DIAGNÓSTICO -->
     <section id="diagnostico" class="section">
-     <div class="section-title">
-      <i data-lucide="activity"></i> Sintomas e Diagnóstico Clínico
+     <div class="section-title"><i data-lucide="activity"></i> Sintomas e Diagnóstico Clínico
      </div>
      <div class="content-card">
       <h3>A Doença Silenciosa</h3>
@@ -751,9 +916,68 @@
        <li>✓ Manguito calibrado e proporcional ao braço</li>
        <li>✓ Múltiplas aferições em momentos distintos</li>
       </ul>
+     </div><!-- SEÇÃO INTERATIVA: TAMANHO DO MANGUITO -->
+     <div class="interactive-section">
+      <h3>🩺 Interativo: Escolha o Tamanho Correto do Manguito</h3>
+      <p style="margin-bottom: 20px;">Para uma aferição precisa da pressão arterial, o manguito deve ser proporcional à circunferência do braço. Clique na opção correta:</p>
+      <div class="cuff-selector">
+       <div class="cuff-option" onclick="selectCuff('infantil')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         👶
+        </div><strong>Infantil</strong><br><small>&lt; 15 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('padrao')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📏
+        </div><strong>Padrão</strong><br><small>15-23 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('largo')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📐
+        </div><strong>Largo</strong><br><small>23-33 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('extra')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📊
+        </div><strong>Extra Largo</strong><br><small>&gt; 33 cm</small>
+       </div>
+      </div>
+      <div id="cuff-info" class="cuff-info" style="display:none;">
+      </div>
+     </div><!-- SEMÁFORO DE HIPERTENSÃO -->
+     <div class="interactive-section">
+      <h3>🚦 Semáforo da Hipertensão - Teste Seus Valores</h3>
+      <p style="margin-bottom: 20px;">Digite sua pressão arterial para visualizar a classificação em tempo real:</p>
+      <div class="blood-pressure-semaphore">
+       <div class="semaphore-input-group">
+        <div class="input-field"><label for="systolic">Pressão Sistólica (PAS) mmHg</label> <input type="number" id="systolic" placeholder="Ex: 120" min="0" max="250" oninput="updateSemaphore()">
+        </div>
+        <div class="input-field"><label for="diastolic">Pressão Diastólica (PAD) mmHg</label> <input type="number" id="diastolic" placeholder="Ex: 80" min="0" max="160" oninput="updateSemaphore()">
+        </div>
+       </div>
+       <div class="semaphore-display">
+        <div class="semaphore-light green-light" id="normal-light">
+         ✓ NORMAL<br><small>&lt; 120/80</small>
+        </div>
+        <div class="semaphore-light yellow-light" id="prehyper-light">
+         ⚠ PRÉ-HAS<br><small>120-139/80-89</small>
+        </div>
+        <div class="semaphore-light red-light" id="hyper-light">
+         ✗ HIPERTENSÃO<br><small>≥ 140/90</small>
+        </div>
+       </div>
+       <div class="result-text" id="result-text" style="color: #7f8c8d;">
+        Digite os valores acima para visualizar a classificação
+       </div>
+      </div>
+     </div><!-- LINKS DO GOVERNO -->
+     <div class="content-card">
+      <h3>📌 LINKS ÚTEIS </h3>
+      <p style="margin-bottom: 20px;">Acesse os materiais e diretrizes oficiais sobre hipertensão:</p>
+      <div class="government-links"><a href="https://linhasdecuidado.saude.gov.br/portal/hipertensao-arterial-sistemica-%28HAS%29-no-adulto/" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="external-link"></i> Linhas de Cuidado do MS </a> <a href="https://saude.df.gov.br/w/hipertens%C3%A3o-data-alerta-para-preven%C3%A7%C3%A3o-e-combate-a-uma-doen%C3%A7a-silenciosa" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="external-link"></i> Saúde DF - Hipertensão </a> <a href="https://youtu.be/xwTCwHYv_Fs?si=YMnTk21eXjMtRdYp" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="play-circle"></i> Vídeo nova diretriz HAS  </a>
+      </div>
      </div>
-     <div class="highlight-box">
-      <strong>🔍 Diagnóstico Definitivo:</strong>
+     <div class="highlight-box"><strong>🔍 Diagnóstico Definitivo:</strong>
       <ul style="margin-top: 10px;">
        <li>PAS ≥ 140 mmHg E/OU PAD ≥ 90 mmHg em 2+ consultas distintas</li>
        <li><strong>OU</strong> confirmação por MAPA/MRPA (monitorização dinâmica ambulatorial)</li>
@@ -765,8 +989,7 @@
      </div>
     </section><!-- FATORES DE RISCO -->
     <section id="risco" class="section">
-     <div class="section-title">
-      <i data-lucide="alert-circle"></i> Fatores de Risco
+     <div class="section-title"><i data-lucide="alert-circle"></i> Fatores de Risco
      </div>
      <div class="content-card">
       <h3>Fatores Não Modificáveis</h3>
@@ -788,8 +1011,7 @@
        <li><strong>😰 Estresse psicossocial crônico:</strong> Hiperatividade simpática contínua</li>
       </ul>
      </div>
-     <div class="highlight-box">
-      <strong>💪 Boas notícias:</strong> Modificação precoce de hábitos comportamentais pode mitigar robustamente o risco de mortalidade cardiovascular global!
+     <div class="highlight-box"><strong>💪 Boas notícias:</strong> Modificação precoce de hábitos comportamentais pode mitigar robustamente o risco de mortalidade cardiovascular global!
      </div>
      <div class="content-card">
       <h3>Principais Estratégias Preventivas</h3>
@@ -803,8 +1025,7 @@
      </div>
     </section><!-- COMPLICAÇÕES -->
     <section id="complicacoes" class="section">
-     <div class="section-title">
-      <i data-lucide="heart"></i> Complicações Principais
+     <div class="section-title"><i data-lucide="heart"></i> Complicações Principais
      </div>
      <div class="content-card">
       <p>A manutenção de níveis elevados de PA não controlados atua como principal vetor para desencadeamento de lesões estruturais e funcionais graves nos órgãos-alvo.</p>
@@ -827,30 +1048,16 @@
        <p>Os rins possuem rede vascular altamente vulnerável às oscilações pressóricas. A hipertensão lesiona estruturalmente as arteríolas renais (nefrosclerose hipertensiva), comprometendo o fluxo glomerular e levando à destruição fibrosa irreversível dos néfrons.</p>
       </div>
      </div>
-     <div class="highlight-box">
-      <strong>⚡ Urgência:</strong> O controle rigoroso da PA é a estratégia mais efetiva para prevenir todas essas complicações devastadoras!
+     <div class="highlight-box"><strong>⚡ Urgência:</strong> O controle rigoroso da PA é a estratégia mais efetiva para prevenir todas essas complicações devastadoras!
      </div>
-     <div class="decorative-hearts">
-      ❤️ 💙 ❤️ 💙 ❤️
-     </div>
+     
     </section><!-- TRATAMENTO -->
     <section id="tratamento" class="section">
-     <div class="section-title">
-      <i data-lucide="pill"></i> Prevenção, Monitoramento e Tratamento
+     <div class="section-title"><i data-lucide="pill"></i> Prevenção, Monitoramento e Tratamento
      </div>
      <div class="content-card">
       <h3>Modelo Terapêutico Duplo</h3>
       <p>O controle bem-sucedido da HAS assenta-se sobre abordagem não farmacológica E terapia medicamentosa.</p>
-     </div>
-     <div class="content-card">
-      <h3>📺 Vídeo Educativo</h3>
-      <div class="video-title">
-       <i data-lucide="play-circle"></i> Entenda a Hipertensão Arterial
-      </div>
-      <div class="video-container">
-       <iframe src="https://www.youtube.com/embed/xwTCwHYv_Fs" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-      <p style="margin-top: 15px; color: #2c3e50; font-size: 0.9rem;">Este vídeo apresenta uma visão geral sobre hipertensão arterial, seus impactos na saúde e estratégias de prevenção e controle.</p>
      </div>
      <div class="content-card">
       <h3>1️⃣ Abordagem Não Farmacológica (Mudanças de Estilo de Vida)</h3>
@@ -950,18 +1157,14 @@
        </table>
       </div>
      </div>
-     <div class="decorative-hearts">
-      ❤️ 💙 ❤️ 💙 ❤️
-     </div>
-     <div class="highlight-box">
-      <strong>⚠️ Desafio Principal: ADESÃO</strong>
+     
+     <div class="highlight-box"><strong>⚠️ Desafio Principal: ADESÃO</strong>
       <p style="margin-top: 10px;">Os baixos índices de adesão continuada ao tratamento representam o maior entrave para eficácia clínica. Muitos pacientes abandonam a terapia ao observarem normalização pressória ou efeitos colaterais iniciais.</p>
       <p><strong>Solução:</strong> Monitoramento contínuo, educação em saúde e compreensão de que a HAS é crônica, incurável, mas perfeitamente controlável!</p>
      </div>
     </section><!-- CONSULTA DE ENFERMAGEM E REDE DE APOIO -->
     <section id="praticas" class="section">
-     <div class="section-title">
-      <i data-lucide="leaf"></i> Práticas Integrativas em Saúde (PIS)
+     <div class="section-title"><i data-lucide="leaf"></i> Práticas Integrativas em Saúde (PIS)
      </div>
      <div class="content-card">
       <p>As PIS são estratégias transversais coadjuvantes no plano de cuidados da hipertensão. Agem predominantemente reduzindo os impactos neuroendócrinos do estresse crônico, um dos principais fatores de risco modificáveis.</p>
@@ -980,8 +1183,7 @@
       <p><strong>Exemplo:</strong> <em>Passiflora incarnata</em> (Maracujá) — reconhecida por propriedades ansiolíticas e sedativas leves.</p>
       <p style="margin-top: 12px; color: #ff6b6b;"><strong>⚠️ Importante:</strong> O enfermeiro especializado deve monitorar interações medicamentosas com fármacos anti-hipertensivos de uso rotineiro!</p>
      </div>
-     <div class="highlight-box">
-      <strong>🏥 Papel do Enfermeiro na Atenção Primária:</strong>
+     <div class="highlight-box"><strong>🏥 Papel do Enfermeiro na Atenção Primária:</strong>
       <ul style="margin-top: 10px;">
        <li>Avaliação continuada de sinais vitais</li>
        <li>Estratificação de risco cardiovascular</li>
@@ -992,19 +1194,17 @@
        <li>Coordenação do programa Hiperdia</li>
       </ul>
      </div>
-     <div class="decorative-hearts">
-      ❤️ 💙 ❤️ 💙 ❤️
-     </div>
+     
     </section><!-- MITOS E VERDADES -->
     <section id="mitos" class="section">
-     <div class="section-title">
-      <i data-lucide="help-circle"></i> Mitos e Verdades sobre Hipertensão
+     <div class="section-title"><i data-lucide="help-circle"></i> Mitos e Verdades sobre Hipertensão
      </div>
      <div class="myth-item">
       <div class="myth-label">
        ❌ MITO
       </div>
-      <div class="myth-text"><strong>"Só preciso tomar o remédio nos dias com dor de cabeça"</strong>
+      <div class="myth-text">
+       <strong>"Só preciso tomar o remédio nos dias com dor de cabeça"</strong>
       </div>
      </div>
      <div class="truth-item">
@@ -1019,7 +1219,8 @@
       <div class="myth-label">
        ❌ MITO
       </div>
-      <div class="myth-text"><strong>"Sal rosa do Himalaia me libera para salgar à vontade"</strong>
+      <div class="myth-text">
+       <strong>"Sal rosa do Himalaia me libera para salgar à vontade"</strong>
       </div>
      </div>
      <div class="truth-item">
@@ -1034,7 +1235,8 @@
       <div class="myth-label">
        ❌ MITO
       </div>
-      <div class="myth-text"><strong>"Hipertensão afeta apenas idosos"</strong>
+      <div class="myth-text">
+       <strong>"Hipertensão afeta apenas idosos"</strong>
       </div>
      </div>
      <div class="truth-item">
@@ -1049,42 +1251,38 @@
       <div class="truth-label">
        ✓ VERDADE
       </div>
-      <div class="truth-text"><strong>Alimentos doces e ultraprocessados aumentam PA.</strong> Eles contêm altas quantidades de sódio oculto (conservante) + açúcares que favorecem ganho de peso e inflamação vascular.
+      <div class="truth-text">
+       <strong>Alimentos doces e ultraprocessados aumentam PA.</strong> Eles contêm altas quantidades de sódio oculto (conservante) + açúcares que favorecem ganho de peso e inflamação vascular.
       </div>
      </div>
      <div class="truth-item">
       <div class="truth-label">
        ✓ VERDADE
       </div>
-      <div class="truth-text"><strong>Hipertensão não tem cura, mas tem controle total.</strong> Sendo crônica, o indivíduo permanecerá hipertenso, porém adesão rigorosa ao tratamento + mudanças de estilo de vida mantêm PA em meta normal, evitando lesões em órgãos-alvo.
+      <div class="truth-text">
+       <strong>Hipertensão não tem cura, mas tem controle total.</strong> Sendo crônica, o indivíduo permanecerá hipertenso, porém adesão rigorosa ao tratamento + mudanças de estilo de vida mantêm PA em meta normal, evitando lesões em órgãos-alvo.
       </div>
      </div>
     </section><!-- AUTORES -->
     <section id="autores" class="section">
-     <div class="section-title">
-      <i data-lucide="users"></i> Autores
+     <div class="section-title"><i data-lucide="users"></i> Autores
      </div>
      <div class="content-card">
       <h3>Discentes (Autores do Trabalho)</h3>
       <div class="authors-list">
-       <div class="author-item">
-        <strong>Bruna Carolina Gomes Saturnino</strong><br>
+       <div class="author-item"><strong>Bruna Carolina Gomes Saturnino</strong><br>
          Matrícula: 222013557
        </div>
-       <div class="author-item">
-        <strong>Claudineia Chagas Figueiredo</strong><br>
+       <div class="author-item"><strong>Claudineia Chagas Figueiredo</strong><br>
          Matrícula: 222033970
        </div>
-       <div class="author-item">
-        <strong>Lilian Júlia Fenelon Santos</strong><br>
+       <div class="author-item"><strong>Lilian Júlia Fenelon Santos</strong><br>
          Matrícula: 232004570
        </div>
-       <div class="author-item">
-        <strong>Maria Eduarda Marto Rios dos Reis de França</strong><br>
+       <div class="author-item"><strong>Maria Eduarda Marto Rios dos Reis de França</strong><br>
          Matrícula: 232036994
        </div>
-       <div class="author-item">
-        <strong>Sarah Teixeira Gomes</strong><br>
+       <div class="author-item"><strong>Sarah Teixeira Gomes</strong><br>
          Matrícula: 190037954
        </div>
       </div>
@@ -1197,6 +1395,79 @@
     document.addEventListener('DOMContentLoaded', function() {
       lucide.createIcons();
     });
+
+    // Funções para o Seletor de Manguito
+    function selectCuff(type) {
+      // Remove seleção anterior
+      document.querySelectorAll('.cuff-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+
+      // Adiciona seleção ao clicado
+      event.target.closest('.cuff-option').classList.add('selected');
+
+      const info = document.getElementById('cuff-info');
+      const cuffData = {
+        infantil: {
+          title: '👶 Manguito Infantil',
+          text: 'Para crianças com circunferência de braço menor que 15 cm. Ideal para aferições em lactentes e pré-escolares.'
+        },
+        padrao: {
+          title: '📏 Manguito Padrão',
+          text: 'Para circunferência de 15-23 cm. Este é o manguito mais comumente utilizado em consultórios e ambulatórios para adultos de constituição normal.'
+        },
+        largo: {
+          title: '📐 Manguito Largo',
+          text: 'Para circunferência de 23-33 cm. Recomendado para pacientes com braços mais robustos ou sobrepeso. Garante melhor precisão que o manguito padrão nestes casos.'
+        },
+        extra: {
+          title: '📊 Manguito Extra Largo',
+          text: 'Para circunferência maior que 33 cm. Essencial para pacientes com obesidade grau III. Usar manguito inadequado pode gerar leituras falsamente elevadas.'
+        }
+      };
+
+      info.innerHTML = `<strong>${cuffData[type].title}</strong><br>${cuffData[type].text}`;
+      info.style.display = 'block';
+    }
+
+    // Função para o Semáforo de Pressão Arterial
+    function updateSemaphore() {
+      const systolic = parseInt(document.getElementById('systolic').value) || 0;
+      const diastolic = parseInt(document.getElementById('diastolic').value) || 0;
+      const resultText = document.getElementById('result-text');
+      const normalLight = document.getElementById('normal-light');
+      const prehyperLight = document.getElementById('prehyper-light');
+      const hyperLight = document.getElementById('hyper-light');
+
+      // Remove classe active de todos
+      [normalLight, prehyperLight, hyperLight].forEach(el => el.classList.remove('active'));
+
+      if (systolic === 0 || diastolic === 0) {
+        resultText.textContent = 'Digite os valores acima para visualizar a classificação';
+        resultText.style.color = '#7f8c8d';
+        return;
+      }
+
+      let classification = '';
+      let color = '';
+
+      if (systolic < 120 && diastolic < 80) {
+        classification = '✓ PRESSÃO NORMAL - Mantenha hábitos saudáveis!';
+        color = '#27ae60';
+        normalLight.classList.add('active');
+      } else if ((systolic >= 120 && systolic < 140) || (diastolic >= 80 && diastolic < 90)) {
+        classification = '⚠ PRÉ-HIPERTENSÃO - Atenção! Modifique seus hábitos de vida agora mesmo!';
+        color = '#f39c12';
+        prehyperLight.classList.add('active');
+      } else if (systolic >= 140 || diastolic >= 90) {
+        classification = '⚠️ HIPERTENSÃO CONFIRMADA - Procure um profissional de saúde imediatamente!';
+        color = '#c0392b';
+        hyperLight.classList.add('active');
+      }
+
+      resultText.textContent = classification;
+      resultText.style.color = color;
+    }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0817a062f0df231',t:'MTc4MDg1NDM5MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a082f6fbdbd1caae',t:'MTc4MDg2OTk5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
