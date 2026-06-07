@@ -1,0 +1,1474 @@
+[index.html](https://github.com/user-attachments/files/28689266/index.html)
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hipertensão Arterial Sistêmica</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #2c3e50;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      background: #ffffff;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #8B0000 0%, #8B0000 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .institution-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    .nav-container {
+      background: #2980b9;
+      padding: 20px 40px;
+      border-bottom: 3px solid #c0392b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-btn.active {
+      background: rgba(192, 57, 43, 0.9);
+      border-color: #c0392b;
+      color: white;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #c0392b;
+      margin-bottom: 25px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .content-card {
+      background: #f8f9fa;
+      border: 2px solid #c0392b;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .content-card h3 {
+      color: #c0392b;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .content-card p {
+      line-height: 1.8;
+      color: #2c3e50;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .content-card ul {
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+
+    .content-card li {
+      margin-bottom: 10px;
+      color: #2c3e50;
+      line-height: 1.7;
+    }
+
+    .highlight-box {
+      background: #e8f4f8;
+      border-left: 4px solid #2980b9;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: #2c3e50;
+    }
+
+    .highlight-box strong {
+      color: #2980b9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .stat-card {
+      background: rgba(41, 128, 185, 0.1);
+      border: 2px solid #2980b9;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      background: rgba(231, 76, 60, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(41, 128, 185, 0.2);
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      color: #c0392b;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: #2c3e50;
+      font-size: 0.9rem;
+    }
+
+    .myth-item {
+      background: #e3f2fd;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+
+    .myth-label {
+      color: #3498db;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .myth-text {
+      color: #2c3e50;
+      line-height: 1.7;
+    }
+
+    .truth-item {
+      background: #e8f5e9;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border-left: 4px solid #2ecc71;
+    }
+
+    .truth-label {
+      color: #2ecc71;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .truth-text {
+      color: #2c3e50;
+      line-height: 1.7;
+    }
+
+    .footer {
+      background: #ecf0f1;
+      border-top: 3px solid #c0392b;
+      padding: 30px 40px;
+      text-align: center;
+      color: #2c3e50;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    .footer p {
+      margin: 8px 0;
+    }
+
+    .authors-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .author-item {
+      background: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid #c0392b;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #2c3e50;
+    }
+
+    .author-item strong {
+      color: #c0392b;
+    }
+
+    .complication-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .complication-item {
+      background: #f0f8ff;
+      border: 2px solid #2980b9;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .complication-item h4 {
+      color: #c0392b;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .complication-item p {
+      color: #2c3e50;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .back-to-top {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #c0392b;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 99;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+    }
+
+    .back-to-top:hover {
+      background: #a93226;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(192, 57, 43, 0.5);
+    }
+
+    .back-to-top.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .decorative-hearts {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0;
+      letter-spacing: 10px;
+      color: #c0392b;
+      opacity: 0.6;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+      color: white;
+    }
+
+    th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 700;
+      border: 1px solid #ddd;
+    }
+
+    td {
+      padding: 12px 15px;
+      border: 1px solid #eee;
+      color: #2c3e50;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    tbody tr:hover {
+      background: #e8f4f8;
+      transition: background 0.2s ease;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      margin: 25px 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .video-title {
+      color: #e74c3c;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlight-stat {
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.1) 0%, rgba(41, 128, 185, 0.1) 100%);
+      padding: 15px;
+      border-left: 4px solid #c0392b;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+
+    /* Seção de Diagnóstico Interativa */
+    .interactive-section {
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.08) 0%, rgba(41, 128, 185, 0.08) 100%);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 25px 0;
+      border: 2px solid #c0392b;
+    }
+
+    .interactive-section h3 {
+      color: #c0392b;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .cuff-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .cuff-option {
+      background: white;
+      border: 2px solid #bdc3c7;
+      padding: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .cuff-option:hover {
+      border-color: #2980b9;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .cuff-option.selected {
+      background: #c0392b;
+      color: white;
+      border-color: #c0392b;
+    }
+
+    .cuff-info {
+      background: #e8f4f8;
+      border-left: 4px solid #2980b9;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Semáforo de Pressão */
+    .blood-pressure-semaphore {
+      margin: 25px 0;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .semaphore-input-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-field label {
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .input-field input {
+      padding: 12px;
+      border: 2px solid #bdc3c7;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .input-field input:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+    }
+
+    .semaphore-display {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .semaphore-light {
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+
+    .semaphore-light.active {
+      opacity: 1;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .green-light {
+      background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    }
+
+    .yellow-light {
+      background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+    }
+
+    .red-light {
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    }
+
+    .result-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    /* Links do Governo */
+    .government-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .gov-link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+    }
+
+    .gov-link-btn:hover {
+      background: linear-gradient(135deg, #1f618d 0%, #154360 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(41, 128, 185, 0.4);
+    }
+
+    .gov-link-btn i {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .header p {
+        font-size: 0.95rem;
+      }
+
+      .nav-menu {
+        gap: 8px;
+        padding: 0 10px;
+      }
+
+      .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .content-card {
+        padding: 18px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ <script src="/_sdk/telemetry_sdk.js"></script></head>
+ <body>
+  <div class="app-wrapper">
+   <div class="header">
+    <h1 id="main-title">Hipertensão Arterial Sistêmica</h1>
+    <p id="main-subtitle">Conceitos, Epidemiologia, Práticas Integrativas e Sistematização da Assistência de Enfermagem</p>
+    <div class="institution-tag"><span id="institution">Universidade de Brasília</span> • Faculdade de Ciências da Saúde
+    </div>
+   </div>
+   <div class="nav-container">
+    <div class="nav-menu"><button class="nav-btn active" onclick="showSection('intro')"> <i data-lucide="home"></i> Introdução </button> <button class="nav-btn" onclick="showSection('conceito')"> <i data-lucide="brain"></i> Conceitos </button> <button class="nav-btn" onclick="showSection('epidemiologia')"> <i data-lucide="bar-chart-2"></i> Epidemiologia </button> <button class="nav-btn" onclick="showSection('diagnostico')"> <i data-lucide="activity"></i> Diagnóstico </button> <button class="nav-btn" onclick="showSection('risco')"> <i data-lucide="alert-circle"></i> Fatores de Risco </button> <button class="nav-btn" onclick="showSection('complicacoes')"> <i data-lucide="heart"></i> Complicações </button> <button class="nav-btn" onclick="showSection('tratamento')"> <i data-lucide="pill"></i> Tratamento </button> <button class="nav-btn" onclick="showSection('praticas')"> <i data-lucide="leaf"></i> Práticas Integrativas </button> <button class="nav-btn" onclick="showSection('mitos')"> <i data-lucide="help-circle"></i> Mitos &amp; Verdades </button> <button class="nav-btn" onclick="showSection('autores')"> <i data-lucide="users"></i> Autores </button> <button class="nav-btn" onclick="showSection('referencias')"> <i data-lucide="book"></i> Referências </button>
+    </div>
+   </div>
+   <div class="content"><!-- INTRODUÇÃO -->
+    <section id="intro" class="section active">
+     <div class="section-title"><i data-lucide="home"></i> Introdução
+     </div>
+     <div class="content-card">
+      <h3>O Desafio da Saúde Pública</h3>
+      <p>As Doenças Crônicas Não Transmissíveis (DCNTs) constituem um dos maiores desafios da saúde pública mundial contemporânea, gerando elevados índices de morbimortalidade e um severo impacto socioeconômico nos sistemas de saúde.</p>
+      <p>Dentre essas patologias, as afecções cardiovasculares ocupam papel central, sendo a <strong>Hipertensão Arterial Sistêmica (HAS)</strong> o principal fator de risco modificável.</p>
+     </div>
+     <div class="stats-grid">
+      <div class="stat-card">
+       <div class="stat-value">
+        1,28 Bi
+       </div>
+       <div class="stat-label">
+        Adultos com HAS mundialmente
+       </div>
+      </div>
+      <div class="stat-card">
+       <div class="stat-value">
+        46%
+       </div>
+       <div class="stat-label">
+        Desconhecem sua condição
+       </div>
+      </div>
+      <div class="stat-card">
+       <div class="stat-value">
+        ⅓
+       </div>
+       <div class="stat-label">
+        Com controle adequado
+       </div>
+      </div>
+     </div>
+     <div class="highlight-box"><strong>💡 Dado Crítico:</strong> Apenas um terço dos diagnosticados mantém suas metas pressóricas sob controle adequado, sublinhando a existência de falhas estruturais no rastreamento precoce e na adesão continuada aos tratamentos.
+     </div>
+    </section><!-- REFERÊNCIAS -->
+    <section id="referencias" class="section">
+     <div class="section-title"><i data-lucide="book"></i> Referências Bibliográficas
+     </div>
+     <div class="content-card">
+      <p style="color: #d0d0d0; margin-bottom: 20px;"><strong>Referências utilizadas neste trabalho acadêmico:</strong></p>
+      <ol style="margin-left: 20px; color: #d0d0d0; line-height: 2;">
+       <li style="margin-bottom: 15px;"><strong>AMORIM, J. S. et al.</strong> Hipertensão arterial sistêmica: uma revisão da literatura atual. <em>Brazilian Journal of Implantology and Health Sciences</em>, v. 6, n. 7, p. 2549-2563, 2024. Disponível em: https://bjihs.emnuvens.com.br/bjihs/article/view/2682. Acesso em: 6 jun. 2026.</li>
+       <li style="margin-bottom: 15px;"><strong>BARROSO, Weimar Kunz Sebba et al.</strong> Diretrizes Brasileiras de Hipertensão Arterial – 2020. <em>Arquivos Brasileiros de Cardiologia</em>, v. 116, n. 3, p. 516-658, 2021.</li>
+       <li style="margin-bottom: 15px;"><strong>BRASIL.</strong> Ministério da Saúde. Secretaria de Vigilância em Saúde e Ambiente. <em>Vigitel Brasil 2023: Vigilância de Fatores de Risco e Proteção para Doenças Crônicas por Inquérito Telefônico</em>. Brasília: Ministério da Saúde, 2024.</li>
+       <li style="margin-bottom: 15px;"><strong>BRASIL.</strong> Ministério da Saúde. Secretaria de Atenção à Saúde. <em>Estratégias para o cuidado da pessoa com doença crônica: hipertensão arterial sistêmica</em>. (Cadernos de Atenção Básica, n. 37). Brasília: Ministério da Saúde, 2013.</li>
+       <li style="margin-bottom: 15px;"><strong>BRASIL.</strong> Ministério da Saúde. <em>Política Nacional de Práticas Integrativas e Complementares no SUS (PNPIC)</em>. 2. ed. Brasília: Ministério da Saúde, 2018.</li>
+       <li style="margin-bottom: 15px;"><strong>BRASIL.</strong> Ministério da Saúde. <em>Plano de Ações Estratégicas para o Enfrentamento das Doenças Crônicas e Agravos Não Transmissíveis no Brasil 2021-2030</em>. Brasília: Ministério da Saúde, 2021.</li>
+       <li style="margin-bottom: 15px;"><strong>HALL, John E.; HALL, Michael E.</strong> <em>Guyton &amp; Hall: Tratado de Fisiologia Médica</em>. 14. ed. Rio de Janeiro: Elsevier, 2020.</li>
+       <li style="margin-bottom: 15px;"><strong>MANCIA, G. et al.</strong> 2023 ESH Guidelines for the Management of Arterial Hypertension. <em>Journal of Hypertension</em>, v. 41, n. 12, p. 1874-2071, 2023.</li>
+       <li style="margin-bottom: 15px;"><strong>NANDA INTERNATIONAL.</strong> <em>Diagnósticos de Enfermagem da NANDA-I: Definições e Classificação 2024-2026</em>. Porto Alegre: Artmed, 2024.</li>
+       <li style="margin-bottom: 15px;"><strong>SOUZA, F. A.; SERRANO, M. P.</strong> O papel da enfermagem na adesão ao tratamento de pacientes hipertensos na atenção básica. <em>Revista Brasileira de Ciências da Saúde</em>, v. 24, n. 2, p. 115-124, 2020.</li>
+       <li><strong>WORLD HEALTH ORGANIZATION (WHO).</strong> Hypertension. Geneva: WHO, 2023. Disponível em: https://www.who.int/news-room/fact-sheets/detail/hypertension. Acesso em: 6 jun. 2026.</li>
+      </ol>
+     </div>
+     <div class="highlight-box" style="margin-top: 30px;">
+      <strong>📚 Nota Importante:</strong> Este material foi elaborado com base em diretrizes científicas atualizadas e publicações acadêmicas de relevância internacionalmente reconhecidas. Recomenda-se que para fins de pesquisa acadêmica aprofundada, os leitores consultem as referências originais listadas acima.
+     </div>
+    </section><!-- CONCEITOS E FISIOPATOLOGIA -->
+    <section id="conceito" class="section">
+     <div class="section-title"><i data-lucide="brain"></i> Conceitos e Fisiopatologia
+     </div>
+     <div class="content-card">
+      <h3>O que é Hipertensão Arterial Sistêmica?</h3>
+      <p>A HAS é uma condição clínica crônica e multifatorial, caracterizada pela elevação sustentada dos níveis de pressão nas artérias sistêmicas. Desenvolve-se de forma predominantemente <strong>assintomática</strong>, sendo comumente classificada como uma "enfermidade silenciosa".</p>
+     </div>
+     <div class="content-card">
+      <h3>Classificação de Pressão Arterial</h3>
+      <ul>
+       <li><strong>Normal:</strong> &lt; 120/80 mmHg</li>
+       <li><strong>Pré-Hipertensão:</strong> 120-139/80-89 mmHg</li>
+       <li><strong>Hipertensão:</strong> ≥ 140/90 mmHg</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>Fisiopatologia da HAS</h3>
+      <p>A cronicidade da elevação pressória reflete uma perturbação nos mecanismos homeostáticos que regulam o débito cardíaco e a resistência vascular sistêmica.</p>
+      <p><strong>Mecanismos principais:</strong></p>
+      <ul>
+       <li>Hiperatividade do Sistema Nervoso Simpático (SNS)</li>
+       <li>Desregulação do Sistema Renina-Angiotensina-Aldosterona (SRAA)</li>
+       <li>Vasoconstrição persistente</li>
+       <li>Aumento da retenção hidrossalina nos rins</li>
+       <li>Disfunção endotelial e remodelamento celular acelerado</li>
+       <li>Perda da complacência arterial</li>
+      </ul>
+      <div class="table-container" style="margin-top: 20px;">
+       <table>
+        <thead>
+         <tr>
+          <th>Mecanismo Fisiopatológico</th>
+          <th>Processo Envolvido</th>
+          <th>Consequência</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td><strong>SNS Ativado</strong></td>
+          <td>Liberação de adrenalina e noradrenalina</td>
+          <td>Vasoconstrição e aumento FC</td>
+         </tr>
+         <tr>
+          <td><strong>SRAA Desregulado</strong></td>
+          <td>Ativação crônica de angiotensina II</td>
+          <td>Retenção de sódio e vasoconstrição</td>
+         </tr>
+         <tr>
+          <td><strong>Rigidez Vascular</strong></td>
+          <td>Perda de elastina e colágeno</td>
+          <td>Menor complacência arterial</td>
+         </tr>
+         <tr>
+          <td><strong>Remodelamento LV</strong></td>
+          <td>Hipertrofia concêntrica progressiva</td>
+          <td>ICC por sobrecarga sistêmica</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     <div class="highlight-box"><strong>⚠️ Tipos de Hipertensão:</strong>
+      <ul style="margin-top: 10px;">
+       <li><strong>Primária/Essencial:</strong> 90-95% dos casos (genética + hábitos de vida)</li>
+       <li><strong>Secundária:</strong> Causas identificáveis (hiperaldosteronismo, estenose renal, síndrome de Cushing, feocromocitoma)</li>
+      </ul>
+     </div>
+
+    </section><!-- EPIDEMIOLOGIA -->
+    <section id="epidemiologia" class="section">
+     <div class="section-title"><i data-lucide="bar-chart-2"></i> Panorama Epidemiológico
+     </div>
+     <div class="content-card">
+      <h3>Dados Nacionais (Brasil)</h3>
+      <p>De acordo com o VIGITEL (Vigilância de Fatores de Risco e Proteção para Doenças Crônicas), a prevalência de diagnósticos autorreferidos de hipertensão em adultos nas capitais estaduais brasileiras situa-se entre <strong>24% e 26%</strong>.</p>
+     </div>
+     <div class="stats-grid">
+      <div class="stat-card">
+       <div class="stat-value">
+        24-26%
+       </div>
+       <div class="stat-label">
+        Prevalência em capitais
+       </div>
+      </div>
+      <div class="stat-card">
+       <div class="stat-value">
+        &gt; 60%
+       </div>
+       <div class="stat-label">
+        Em maiores de 65 anos
+       </div>
+      </div>
+     </div>
+     <div class="content-card">
+      <h3>📊 Classificação de Pressão Arterial por Faixa Etária</h3>
+      <div class="table-container">
+       <table>
+        <thead>
+         <tr>
+          <th>Faixa Etária</th>
+          <th>Classificação</th>
+          <th>Pressão Sistólica</th>
+          <th>Pressão Diastólica</th>
+          <th>Prevalência Aprox.</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td><strong>18-39 anos</strong></td>
+          <td>Normal</td>
+          <td>&lt; 120 mmHg</td>
+          <td>&lt; 80 mmHg</td>
+          <td>~10-15%</td>
+         </tr>
+         <tr>
+          <td><strong>40-59 anos</strong></td>
+          <td>Pré-HAS</td>
+          <td>120-139 mmHg</td>
+          <td>80-89 mmHg</td>
+          <td>~25-30%</td>
+         </tr>
+         <tr>
+          <td><strong>40-59 anos</strong></td>
+          <td>Hipertensão</td>
+          <td>≥ 140 mmHg</td>
+          <td>≥ 90 mmHg</td>
+          <td>~30-40%</td>
+         </tr>
+         <tr>
+          <td><strong>60+ anos</strong></td>
+          <td>Hipertensão</td>
+          <td>≥ 140 mmHg</td>
+          <td>≥ 90 mmHg</td>
+          <td>&gt; 60%</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+    
+     <div class="content-card">
+      <h3>Disparidades Sociais e Étnicas</h3>
+      <p>As pesquisas apontam para discrepâncias significativas nos perfis de adoecimento relacionados a variáveis étnicas e socioeconômicas:</p>
+      <ul>
+       <li>Maior prevalência em indivíduos <strong>pretos e pardos</strong></li>
+       <li>Maior gravidade de complicações em populações de menor escolaridade</li>
+       <li>Determinantes sociais de saúde impactam diretamente o acesso e adesão ao tratamento</li>
+       <li>Desigualdades históricas na distribuição de recursos preventivos</li>
+      </ul>
+     </div>
+     <div class="highlight-box"><strong>📊 Insight:</strong> A senescência e o enrijecimento do leito vascular com a idade explicam as altas taxas em idosos, mas fatores sociais amplificam essas disparidades em grupos vulneráveis.
+     </div>
+    </section><!-- DIAGNÓSTICO -->
+    <section id="diagnostico" class="section">
+     <div class="section-title"><i data-lucide="activity"></i> Sintomas e Diagnóstico Clínico
+     </div>
+     <div class="content-card">
+      <h3>A Doença Silenciosa</h3>
+      <p>A manifestação clínica primária da HAS reside em sua <strong>evolução assintomática</strong>. Durante grande parte de seu curso natural, a pressão arterial se eleva sem despertar sinais perceptíveis.</p>
+      <p>Sintomas surgem apenas em situações de elevação abrupta (emergências hipertensivas) ou quando já existem lesões crônicas instaladas:</p>
+      <ul>
+       <li>Cefaleia (sobretudo occipital matutina)</li>
+       <li>Tontura</li>
+       <li>Acufenos (zumbidos)</li>
+       <li>Palpitações</li>
+       <li>Borramento visual</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>Protocolo de Aferição (Essencial para Diagnóstico Preciso)</h3>
+      <ul>
+       <li>✓ Repouso mínimo de 5 minutos em ambiente silencioso</li>
+       <li>✓ Braço apoiado no nível do precórdio</li>
+       <li>✓ Bexiga esvaziada</li>
+       <li>✓ Sem tabaco, álcool, cafeína ou exercício 30 minutos antes</li>
+       <li>✓ Manguito calibrado e proporcional ao braço</li>
+       <li>✓ Múltiplas aferições em momentos distintos</li>
+      </ul>
+     </div><!-- SEÇÃO INTERATIVA: TAMANHO DO MANGUITO -->
+     <div class="interactive-section">
+      <h3>🩺 Interativo: Escolha o Tamanho Correto do Manguito</h3>
+      <p style="margin-bottom: 20px;">Para uma aferição precisa da pressão arterial, o manguito deve ser proporcional à circunferência do braço. Clique na opção correta:</p>
+      <div class="cuff-selector">
+       <div class="cuff-option" onclick="selectCuff('infantil')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         👶
+        </div><strong>Infantil</strong><br><small>&lt; 15 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('padrao')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📏
+        </div><strong>Padrão</strong><br><small>15-23 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('largo')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📐
+        </div><strong>Largo</strong><br><small>23-33 cm</small>
+       </div>
+       <div class="cuff-option" onclick="selectCuff('extra')">
+        <div style="font-size: 1.5rem; margin-bottom: 8px;">
+         📊
+        </div><strong>Extra Largo</strong><br><small>&gt; 33 cm</small>
+       </div>
+      </div>
+      <div id="cuff-info" class="cuff-info" style="display:none;">
+      </div>
+     </div><!-- SEMÁFORO DE HIPERTENSÃO -->
+     <div class="interactive-section">
+      <h3>🚦 Semáforo da Hipertensão - Teste Seus Valores</h3>
+      <p style="margin-bottom: 20px;">Digite sua pressão arterial para visualizar a classificação em tempo real:</p>
+      <div class="blood-pressure-semaphore">
+       <div class="semaphore-input-group">
+        <div class="input-field"><label for="systolic">Pressão Sistólica (PAS) mmHg</label> <input type="number" id="systolic" placeholder="Ex: 120" min="0" max="250" oninput="updateSemaphore()">
+        </div>
+        <div class="input-field"><label for="diastolic">Pressão Diastólica (PAD) mmHg</label> <input type="number" id="diastolic" placeholder="Ex: 80" min="0" max="160" oninput="updateSemaphore()">
+        </div>
+       </div>
+       <div class="semaphore-display">
+        <div class="semaphore-light green-light" id="normal-light">
+         ✓ NORMAL<br><small>&lt; 120/80</small>
+        </div>
+        <div class="semaphore-light yellow-light" id="prehyper-light">
+         ⚠ PRÉ-HAS<br><small>120-139/80-89</small>
+        </div>
+        <div class="semaphore-light red-light" id="hyper-light">
+         ✗ HIPERTENSÃO<br><small>≥ 140/90</small>
+        </div>
+       </div>
+       <div class="result-text" id="result-text" style="color: #7f8c8d;">
+        Digite os valores acima para visualizar a classificação
+       </div>
+      </div>
+     </div><!-- LINKS DO GOVERNO -->
+     <div class="content-card">
+      <h3>📌 LINKS ÚTEIS </h3>
+      <p style="margin-bottom: 20px;">Acesse os materiais e diretrizes oficiais sobre hipertensão:</p>
+      <div class="government-links"><a href="https://linhasdecuidado.saude.gov.br/portal/hipertensao-arterial-sistemica-%28HAS%29-no-adulto/" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="external-link"></i> Linhas de Cuidado do MS </a> <a href="https://saude.df.gov.br/w/hipertens%C3%A3o-data-alerta-para-preven%C3%A7%C3%A3o-e-combate-a-uma-doen%C3%A7a-silenciosa" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="external-link"></i> Saúde DF - Hipertensão </a> <a href="https://youtu.be/xwTCwHYv_Fs?si=YMnTk21eXjMtRdYp" target="_blank" rel="noopener noreferrer" class="gov-link-btn"> <i data-lucide="play-circle"></i> Vídeo nova diretriz HAS  </a>
+      </div>
+     </div>
+     <div class="highlight-box"><strong>🔍 Diagnóstico Definitivo:</strong>
+      <ul style="margin-top: 10px;">
+       <li>PAS ≥ 140 mmHg E/OU PAD ≥ 90 mmHg em 2+ consultas distintas</li>
+       <li><strong>OU</strong> confirmação por MAPA/MRPA (monitorização dinâmica ambulatorial)</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>Cuidado: Hipertensão do Avental Branco</h3>
+      <p>A ansiedade durante a consulta pode elevar transitoriamente a PA, causando diagnósticos falsos positivos. Por isso, protocolos rigorosos e monitorização domiciliar são essenciais.</p>
+     </div>
+    </section><!-- FATORES DE RISCO -->
+    <section id="risco" class="section">
+     <div class="section-title"><i data-lucide="alert-circle"></i> Fatores de Risco
+     </div>
+     <div class="content-card">
+      <h3>Fatores Não Modificáveis</h3>
+      <p>Aspectos intrínsecos e insuscetíveis de alteração:</p>
+      <ul>
+       <li><strong>Hereditariedade:</strong> Histórico familiar positivo aumenta significativamente o risco</li>
+       <li><strong>Idade:</strong> Envelhecimento natural causa progressiva esclerose vascular</li>
+       <li><strong>Etnia:</strong> População negra manifesta taxas mais elevadas e maior gravidade</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>Fatores Modificáveis (Foco Principal da Prevenção)</h3>
+      <ul>
+       <li><strong>🧂 Consumo excessivo de sódio:</strong> Retenção hídrica e elevação da resistência vascular</li>
+       <li><strong>🚫 Sedentarismo:</strong> Aumenta trabalho hemodinâmico cardíaco</li>
+       <li><strong>⚖️ Ganho ponderal:</strong> Acúmulo visceral estimula resistência insulínica</li>
+       <li><strong>🚬 Tabagismo:</strong> Injúria endotelial e espasmos vasculares</li>
+       <li><strong>🍷 Consumo de álcool:</strong> Aumento da resistência periférica</li>
+       <li><strong>😰 Estresse psicossocial crônico:</strong> Hiperatividade simpática contínua</li>
+      </ul>
+     </div>
+     <div class="highlight-box"><strong>💪 Boas notícias:</strong> Modificação precoce de hábitos comportamentais pode mitigar robustamente o risco de mortalidade cardiovascular global!
+     </div>
+     <div class="content-card">
+      <h3>Principais Estratégias Preventivas</h3>
+      <ul>
+       <li>Redução de sódio a máximo 2g/dia (5g de sal)</li>
+       <li>Manutenção de peso saudável</li>
+       <li>150+ minutos semanais de exercícios aeróbicos</li>
+       <li>Cessação total do tabagismo</li>
+       <li>Moderação drástica no consumo de álcool</li>
+      </ul>
+     </div>
+    </section><!-- COMPLICAÇÕES -->
+    <section id="complicacoes" class="section">
+     <div class="section-title"><i data-lucide="heart"></i> Complicações Principais
+     </div>
+     <div class="content-card">
+      <p>A manutenção de níveis elevados de PA não controlados atua como principal vetor para desencadeamento de lesões estruturais e funcionais graves nos órgãos-alvo.</p>
+     </div>
+     <div class="complication-grid">
+      <div class="complication-item">
+       <h4>🧠 Acidente Vascular Cerebral (AVC)</h4>
+       <p>A hipertensão é o fator de risco de maior impacto para episódios vasculares encefálicos. O estresse mecânico fragiliza a microcirculação cerebral, acelerando aterosclerose e formação de trombos (AVC isquêmico) ou predispondo ao rompimento de paredes fragilizadas (AVC hemorrágico).</p>
+      </div>
+      <div class="complication-item">
+       <h4>❤️ Infarto Agudo do Miocárdio (IAM)</h4>
+       <p>A sobrecarga hidrostática crônica perpetua disfunção endotelial em artérias coronárias, acelerando deposição de lipídeos e consolidação de placas ateroscleróticas instáveis que, ao romperem, ativam cascata de coagulação com oclusão trombótica.</p>
+      </div>
+      <div class="complication-item">
+       <h4>💔 Insuficiência Cardíaca Congestiva (ICC)</h4>
+       <p>O ventrículo esquerdo é submetido a sobrecarga de trabalho extenuante. Inicialmente desenvolve hipertrofia concêntrica adaptativa, mas evolui para remodelamento mal-adaptativo com dilatação progressiva, perda de contratilidade e incapacidade de suprir demandas metabólicas.</p>
+      </div>
+      <div class="complication-item">
+       <h4>🫘 Insuficiência Renal Crônica (IRC)</h4>
+       <p>Os rins possuem rede vascular altamente vulnerável às oscilações pressóricas. A hipertensão lesiona estruturalmente as arteríolas renais (nefrosclerose hipertensiva), comprometendo o fluxo glomerular e levando à destruição fibrosa irreversível dos néfrons.</p>
+      </div>
+     </div>
+     <div class="highlight-box"><strong>⚡ Urgência:</strong> O controle rigoroso da PA é a estratégia mais efetiva para prevenir todas essas complicações devastadoras!
+     </div>
+     
+    </section><!-- TRATAMENTO -->
+    <section id="tratamento" class="section">
+     <div class="section-title"><i data-lucide="pill"></i> Prevenção, Monitoramento e Tratamento
+     </div>
+     <div class="content-card">
+      <h3>Modelo Terapêutico Duplo</h3>
+      <p>O controle bem-sucedido da HAS assenta-se sobre abordagem não farmacológica E terapia medicamentosa.</p>
+     </div>
+     <div class="content-card">
+      <h3>1️⃣ Abordagem Não Farmacológica (Mudanças de Estilo de Vida)</h3>
+      <p><strong>Dieta DASH (Dietary Approaches to Stop Hypertension):</strong></p>
+      <ul>
+       <li>✓ Frutas e hortaliças abundantes</li>
+       <li>✓ Laticínios de baixo teor de gordura</li>
+       <li>✓ Grãos integrais</li>
+       <li>✓ Restrição rigorosa de sódio (máx. 2g/dia)</li>
+      </ul>
+      <div class="table-container" style="margin-top: 20px;">
+       <table>
+        <thead>
+         <tr>
+          <th>Alimento Recomendado</th>
+          <th>Frequência</th>
+          <th>Benefício Principal</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td><strong>Frutas e Vegetais</strong></td>
+          <td>5+ porções/dia</td>
+          <td>Ricos em potássio e fibras</td>
+         </tr>
+         <tr>
+          <td><strong>Grãos Integrais</strong></td>
+          <td>Diariamente</td>
+          <td>Reduz inflamação vascular</td>
+         </tr>
+         <tr>
+          <td><strong>Peixes (ômega-3)</strong></td>
+          <td>2-3x/semana</td>
+          <td>Vasodilatação e redução triglicerídeos</td>
+         </tr>
+         <tr>
+          <td><strong>Laticínios Baixo Gordura</strong></td>
+          <td>2-3 porções/dia</td>
+          <td>Cálcio sem excesso de gordura</td>
+         </tr>
+         <tr>
+          <td><strong>Oleaginosas</strong></td>
+          <td>Pequena porção/dia</td>
+          <td>Ácidos graxos saudáveis</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <p style="margin-top: 15px;"><strong>Complementos essenciais:</strong></p>
+      <ul>
+       <li>✓ Cessação do tabagismo</li>
+       <li>✓ Atividades físicas aeróbicas: 150+ min/semana</li>
+       <li>✓ Manejo do estresse</li>
+       <li>✓ Moderação de álcool</li>
+       <li>✓ Registro domiciliar da PA</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>2️⃣ Abordagem Farmacológica</h3>
+      <p>Medicamentos disponibilizados amplamente pelo SUS:</p>
+      <div class="table-container">
+       <table>
+        <thead>
+         <tr>
+          <th>Classe Medicamentosa</th>
+          <th>Sigla</th>
+          <th>Mecanismo de Ação</th>
+          <th>Efeitos Colaterais Comuns</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td><strong>Diuréticos Tiazídicos</strong></td>
+          <td>-</td>
+          <td>Reduz volume de fluido corporal</td>
+          <td>Aumento volume urinário</td>
+         </tr>
+         <tr>
+          <td><strong>Inibidor ECA</strong></td>
+          <td>IECA</td>
+          <td>Bloqueia hormônio vasoconstritor</td>
+          <td>Tosse seca, tontura</td>
+         </tr>
+         <tr>
+          <td><strong>Bloqueador de Receptor AT</strong></td>
+          <td>BRA</td>
+          <td>Bloqueia receptor de angiotensina</td>
+          <td>Mínimos, bem tolerado</td>
+         </tr>
+         <tr>
+          <td><strong>Bloqueador Canal de Cálcio</strong></td>
+          <td>-</td>
+          <td>Reduz contratilidade cardíaca</td>
+          <td>Edema nos pés, constipação</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </div>
+     
+     <div class="highlight-box"><strong>⚠️ Desafio Principal: ADESÃO</strong>
+      <p style="margin-top: 10px;">Os baixos índices de adesão continuada ao tratamento representam o maior entrave para eficácia clínica. Muitos pacientes abandonam a terapia ao observarem normalização pressória ou efeitos colaterais iniciais.</p>
+      <p><strong>Solução:</strong> Monitoramento contínuo, educação em saúde e compreensão de que a HAS é crônica, incurável, mas perfeitamente controlável!</p>
+     </div>
+    </section><!-- CONSULTA DE ENFERMAGEM E REDE DE APOIO -->
+    <section id="praticas" class="section">
+     <div class="section-title"><i data-lucide="leaf"></i> Práticas Integrativas em Saúde (PIS)
+     </div>
+     <div class="content-card">
+      <p>As PIS são estratégias transversais coadjuvantes no plano de cuidados da hipertensão. Agem predominantemente reduzindo os impactos neuroendócrinos do estresse crônico, um dos principais fatores de risco modificáveis.</p>
+     </div>
+     <div class="content-card">
+      <h3>🎯 Auriculoterapia</h3>
+      <p>A estimulação de pontos específicos no microssistema auricular (Shenmen, Rim, Simpático) atua na modulação do sistema nervoso autônomo. Ensaios clínicos sugerem benefício na redução de estresse psíquico e ansiedade.</p>
+     </div>
+     <div class="content-card">
+      <h3>🧘 Meditação e Yoga</h3>
+      <p>Práticas com controle respiratório (pranayamas) e indução ao relaxamento reduzem níveis séricos de catecolaminas (adrenalina, cortisol). Resultado: decréscimo da frequência cardíaca e redução da resistência vascular periférica por vasodilatação.</p>
+     </div>
+     <div class="content-card">
+      <h3>🌿 Fitoterapia</h3>
+      <p>O uso terapêutico de plantas medicinais regulamentadas pode ser adotado complementarmente para manejo de distúrbios de sono e ansiedade.</p>
+      <p><strong>Exemplo:</strong> <em>Passiflora incarnata</em> (Maracujá) — reconhecida por propriedades ansiolíticas e sedativas leves.</p>
+      <p style="margin-top: 12px; color: #ff6b6b;"><strong>⚠️ Importante:</strong> O enfermeiro especializado deve monitorar interações medicamentosas com fármacos anti-hipertensivos de uso rotineiro!</p>
+     </div>
+     <div class="highlight-box"><strong>🏥 Papel do Enfermeiro na Atenção Primária:</strong>
+      <ul style="margin-top: 10px;">
+       <li>Avaliação continuada de sinais vitais</li>
+       <li>Estratificação de risco cardiovascular</li>
+       <li>Identificação de diagnósticos de enfermagem (NANDA)</li>
+       <li>Gerenciamento de intervenções não farmacológicas</li>
+       <li>Identificação de barreiras de adesão (financeiras, geográficas, culturais)</li>
+       <li>Educação em saúde e estímulo ao autocuidado apoiado</li>
+       <li>Coordenação do programa Hiperdia</li>
+      </ul>
+     </div>
+     
+    </section><!-- MITOS E VERDADES -->
+    <section id="mitos" class="section">
+     <div class="section-title"><i data-lucide="help-circle"></i> Mitos e Verdades sobre Hipertensão
+     </div>
+     <div class="myth-item">
+      <div class="myth-label">
+       ❌ MITO
+      </div>
+      <div class="myth-text">
+       <strong>"Só preciso tomar o remédio nos dias com dor de cabeça"</strong>
+      </div>
+     </div>
+     <div class="truth-item">
+      <div class="truth-label">
+       ✓ VERDADE
+      </div>
+      <div class="truth-text">
+       A HAS é crônica e predominantemente silenciosa. O medicamento funciona continuamente para evitar picos. A suspensão abrupta coloca o paciente em risco de AVC ou infarto.
+      </div>
+     </div>
+     <div class="myth-item">
+      <div class="myth-label">
+       ❌ MITO
+      </div>
+      <div class="myth-text">
+       <strong>"Sal rosa do Himalaia me libera para salgar à vontade"</strong>
+      </div>
+     </div>
+     <div class="truth-item">
+      <div class="truth-label">
+       ✓ VERDADE
+      </div>
+      <div class="truth-text">
+       Embora possua minerais adicionais, a quantidade de sódio por grama é praticamente idêntica à do sal de cozinha. A restrição quantitativa continua obrigatória (máximo 2g de sódio/dia).
+      </div>
+     </div>
+     <div class="myth-item">
+      <div class="myth-label">
+       ❌ MITO
+      </div>
+      <div class="myth-text">
+       <strong>"Hipertensão afeta apenas idosos"</strong>
+      </div>
+     </div>
+     <div class="truth-item">
+      <div class="truth-label">
+       ✓ VERDADE
+      </div>
+      <div class="truth-text">
+       Embora sua prevalência aumente com a idade, a HAS pode manifestar-se em jovens e até crianças, impulsionada por genética, hábitos inadequados e obesidade infantil crescente.
+      </div>
+     </div>
+     <div class="truth-item">
+      <div class="truth-label">
+       ✓ VERDADE
+      </div>
+      <div class="truth-text">
+       <strong>Alimentos doces e ultraprocessados aumentam PA.</strong> Eles contêm altas quantidades de sódio oculto (conservante) + açúcares que favorecem ganho de peso e inflamação vascular.
+      </div>
+     </div>
+     <div class="truth-item">
+      <div class="truth-label">
+       ✓ VERDADE
+      </div>
+      <div class="truth-text">
+       <strong>Hipertensão não tem cura, mas tem controle total.</strong> Sendo crônica, o indivíduo permanecerá hipertenso, porém adesão rigorosa ao tratamento + mudanças de estilo de vida mantêm PA em meta normal, evitando lesões em órgãos-alvo.
+      </div>
+     </div>
+    </section><!-- AUTORES -->
+    <section id="autores" class="section">
+     <div class="section-title"><i data-lucide="users"></i> Autores
+     </div>
+     <div class="content-card">
+      <h3>Discentes (Autores do Trabalho)</h3>
+      <div class="authors-list">
+       <div class="author-item"><strong>Bruna Carolina Gomes Saturnino</strong><br>
+         Matrícula: 222013557
+       </div>
+       <div class="author-item"><strong>Claudineia Chagas Figueiredo</strong><br>
+         Matrícula: 222033970
+       </div>
+       <div class="author-item"><strong>Lilian Júlia Fenelon Santos</strong><br>
+         Matrícula: 232004570
+       </div>
+       <div class="author-item"><strong>Maria Eduarda Marto Rios dos Reis de França</strong><br>
+         Matrícula: 232036994
+       </div>
+       <div class="author-item"><strong>Sarah Teixeira Gomes</strong><br>
+         Matrícula: 190037954
+       </div>
+      </div>
+     </div>
+     <div class="content-card">
+      <h3>Docentes Orientadores</h3>
+      <p>Disciplina: <strong>Cuidado do Adulto e do Idoso</strong></p>
+      <ul>
+       <li>Ana Beatriz Duarte Vieira</li>
+       <li>Andrea Mathes Faustino</li>
+       <li>Bruna Cristina De Araujo Lima</li>
+       <li>Katiuscia Larsen De Abreu Aguiar</li>
+       <li>Leides Barroso De Azevedo Moura</li>
+       <li>Luciana Neves Da Silva Bampi</li>
+      </ul>
+     </div>
+     <div class="content-card">
+      <h3>Instituição</h3>
+      <ul>
+       <li><strong>Universidade:</strong> Universidade de Brasília (UnB)</li>
+       <li><strong>Faculdade:</strong> Faculdade de Ciências da Saúde</li>
+       <li><strong>Departamento:</strong> Departamento de Enfermagem</li>
+       <li><strong>Local:</strong> Brasília, DF</li>
+       <li><strong>Ano:</strong> 2026</li>
+      </ul>
+     </div>
+    </section>
+   </div>
+   <div class="footer">
+    <p><strong>Hipertensão Arterial Sistêmica:</strong> Conceitos, Epidemiologia, Práticas Integrativas e Sistematização da Assistência de Enfermagem</p>
+    <p>Universidade de Brasília • Faculdade de Ciências da Saúde • Departamento de Enfermagem • 2026</p>
+    <p style="margin-top: 20px; opacity: 0.7;">Este site foi desenvolvido como ferramenta educativa para disseminação do conhecimento científico sobre HAS.</p>
+   </div><button class="back-to-top" onclick="scrollToTop()"> <i data-lucide="arrow-up"></i> </button>
+  </div>
+  <script>
+    // Element SDK Configuration
+    const defaultConfig = {
+      site_title: "Hipertensão Arterial Sistêmica",
+      site_subtitle: "Conceitos, Epidemiologia e Cuidados",
+      institution_name: "Universidade de Brasília"
+    };
+
+    let config = { ...defaultConfig };
+
+    // Element SDK Initialization
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (newConfig) => {
+          config = newConfig;
+          document.getElementById('main-title').textContent = config.site_title || defaultConfig.site_title;
+          document.getElementById('main-subtitle').textContent = config.site_subtitle || defaultConfig.site_subtitle;
+          document.getElementById('institution').textContent = config.institution_name || defaultConfig.institution_name;
+        },
+        mapToCapabilities: (cfg) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (cfg) => new Map([
+          ["site_title", cfg.site_title || defaultConfig.site_title],
+          ["site_subtitle", cfg.site_subtitle || defaultConfig.site_subtitle],
+          ["institution_name", cfg.institution_name || defaultConfig.institution_name]
+        ])
+      });
+    }
+
+    // Navigation Functions
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Remove active class from all buttons
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show selected section
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.classList.add('active');
+      }
+
+      // Add active class to clicked button
+      event.target.closest('.nav-btn').classList.add('active');
+
+      // Scroll to top of content
+      document.querySelector('.content').scrollTop = 0;
+    }
+
+    // Back to Top Button
+    function scrollToTop() {
+      const content = document.querySelector('.content');
+      content.scrollTop = 0;
+    }
+
+    document.querySelector('.content').addEventListener('scroll', function() {
+      const backToTopBtn = document.querySelector('.back-to-top');
+      if (this.scrollTop > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+    });
+
+    // Funções para o Seletor de Manguito
+    function selectCuff(type) {
+      // Remove seleção anterior
+      document.querySelectorAll('.cuff-option').forEach(option => {
+        option.classList.remove('selected');
+      });
+
+      // Adiciona seleção ao clicado
+      event.target.closest('.cuff-option').classList.add('selected');
+
+      const info = document.getElementById('cuff-info');
+      const cuffData = {
+        infantil: {
+          title: '👶 Manguito Infantil',
+          text: 'Para crianças com circunferência de braço menor que 15 cm. Ideal para aferições em lactentes e pré-escolares.'
+        },
+        padrao: {
+          title: '📏 Manguito Padrão',
+          text: 'Para circunferência de 15-23 cm. Este é o manguito mais comumente utilizado em consultórios e ambulatórios para adultos de constituição normal.'
+        },
+        largo: {
+          title: '📐 Manguito Largo',
+          text: 'Para circunferência de 23-33 cm. Recomendado para pacientes com braços mais robustos ou sobrepeso. Garante melhor precisão que o manguito padrão nestes casos.'
+        },
+        extra: {
+          title: '📊 Manguito Extra Largo',
+          text: 'Para circunferência maior que 33 cm. Essencial para pacientes com obesidade grau III. Usar manguito inadequado pode gerar leituras falsamente elevadas.'
+        }
+      };
+
+      info.innerHTML = `<strong>${cuffData[type].title}</strong><br>${cuffData[type].text}`;
+      info.style.display = 'block';
+    }
+
+    // Função para o Semáforo de Pressão Arterial
+    function updateSemaphore() {
+      const systolic = parseInt(document.getElementById('systolic').value) || 0;
+      const diastolic = parseInt(document.getElementById('diastolic').value) || 0;
+      const resultText = document.getElementById('result-text');
+      const normalLight = document.getElementById('normal-light');
+      const prehyperLight = document.getElementById('prehyper-light');
+      const hyperLight = document.getElementById('hyper-light');
+
+      // Remove classe active de todos
+      [normalLight, prehyperLight, hyperLight].forEach(el => el.classList.remove('active'));
+
+      if (systolic === 0 || diastolic === 0) {
+        resultText.textContent = 'Digite os valores acima para visualizar a classificação';
+        resultText.style.color = '#7f8c8d';
+        return;
+      }
+
+      let classification = '';
+      let color = '';
+
+      if (systolic < 120 && diastolic < 80) {
+        classification = '✓ PRESSÃO NORMAL - Mantenha hábitos saudáveis!';
+        color = '#27ae60';
+        normalLight.classList.add('active');
+      } else if ((systolic >= 120 && systolic < 140) || (diastolic >= 80 && diastolic < 90)) {
+        classification = '⚠ PRÉ-HIPERTENSÃO - Atenção! Modifique seus hábitos de vida agora mesmo!';
+        color = '#f39c12';
+        prehyperLight.classList.add('active');
+      } else if (systolic >= 140 || diastolic >= 90) {
+        classification = '⚠️ HIPERTENSÃO CONFIRMADA - Procure um profissional de saúde imediatamente!';
+        color = '#c0392b';
+        hyperLight.classList.add('active');
+      }
+
+      resultText.textContent = classification;
+      resultText.style.color = color;
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a082f6fbdbd1caae',t:'MTc4MDg2OTk5NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
